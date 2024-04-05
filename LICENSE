@@ -1,0 +1,7 @@
+The models stored in this project are extracted from the official
+“AWS SDK for Rust” repository [1].
+They are licensed as declared by Amazon Web Services, Inc. at the source
+repository [2].
+
+[1] https://github.com/awslabs/aws-sdk-rust
+[2] https://github.com/awslabs/aws-sdk-rust/blob/main/LICENSE
