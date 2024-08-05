@@ -232,6 +232,190 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#AggFunction": {
+            "type": "structure",
+            "members": {
+                "Aggregation": {
+                    "target": "com.amazonaws.quicksight#AggType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The aggregation of an Agg function.</p>"
+                    }
+                },
+                "AggregationFunctionParameters": {
+                    "target": "com.amazonaws.quicksight#AggFunctionParamMap",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The aggregation parameters for an Agg function.</p>"
+                    }
+                },
+                "Period": {
+                    "target": "com.amazonaws.quicksight#TopicTimeGranularity",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The period of an Agg function.</p>"
+                    }
+                },
+                "PeriodField": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The period field for an Agg function.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition of an Agg function.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#AggFunctionParamKey": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                }
+            }
+        },
+        "com.amazonaws.quicksight#AggFunctionParamMap": {
+            "type": "map",
+            "key": {
+                "target": "com.amazonaws.quicksight#AggFunctionParamKey"
+            },
+            "value": {
+                "target": "com.amazonaws.quicksight#AggFunctionParamValue"
+            }
+        },
+        "com.amazonaws.quicksight#AggFunctionParamValue": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 1024
+                }
+            }
+        },
+        "com.amazonaws.quicksight#AggType": {
+            "type": "enum",
+            "members": {
+                "SUM": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "SUM"
+                    }
+                },
+                "MIN": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "MIN"
+                    }
+                },
+                "MAX": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "MAX"
+                    }
+                },
+                "COUNT": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "COUNT"
+                    }
+                },
+                "AVERAGE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "AVERAGE"
+                    }
+                },
+                "DISTINCT_COUNT": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "DISTINCT_COUNT"
+                    }
+                },
+                "STDEV": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "STDEV"
+                    }
+                },
+                "STDEVP": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "STDEVP"
+                    }
+                },
+                "VAR": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "VAR"
+                    }
+                },
+                "VARP": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "VARP"
+                    }
+                },
+                "PERCENTILE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PERCENTILE"
+                    }
+                },
+                "MEDIAN": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "MEDIAN"
+                    }
+                },
+                "PTD_SUM": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PTD_SUM"
+                    }
+                },
+                "PTD_MIN": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PTD_MIN"
+                    }
+                },
+                "PTD_MAX": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PTD_MAX"
+                    }
+                },
+                "PTD_COUNT": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PTD_COUNT"
+                    }
+                },
+                "PTD_DISTINCT_COUNT": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PTD_DISTINCT_COUNT"
+                    }
+                },
+                "PTD_AVERAGE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PTD_AVERAGE"
+                    }
+                },
+                "COLUMN": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "COLUMN"
+                    }
+                },
+                "CUSTOM": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "CUSTOM"
+                    }
+                }
+            }
+        },
         "com.amazonaws.quicksight#AggregationFunction": {
             "type": "structure",
             "members": {
@@ -271,6 +455,38 @@
             },
             "value": {
                 "target": "com.amazonaws.quicksight#LimitedString"
+            }
+        },
+        "com.amazonaws.quicksight#AggregationPartitionBy": {
+            "type": "structure",
+            "members": {
+                "FieldName": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The field Name for an <code>AggregationPartitionBy</code>.</p>"
+                    }
+                },
+                "TimeGranularity": {
+                    "target": "com.amazonaws.quicksight#TimeGranularity",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The <code>TimeGranularity</code> for an <code>AggregationPartitionBy</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition of an <code>AggregationPartitionBy</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#AggregationPartitionByList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#AggregationPartitionBy"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 50
+                }
             }
         },
         "com.amazonaws.quicksight#AggregationSortConfiguration": {
@@ -327,7 +543,7 @@
             "type": "structure",
             "members": {},
             "traits": {
-                "smithy.api#documentation": "<p>The configuration for applying a filter to all sheets. You can apply this filter to all visuals on every sheet.</p>\n         <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>"
+                "smithy.api#documentation": "<p>An empty object that represents that the <code>AllSheets</code> option is the chosen value for the <code>FilterScopeConfiguration</code> parameter. This structure applies the filter to all visuals on all sheets of an Analysis, Dashboard, or Template.</p>\n         <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>"
             }
         },
         "com.amazonaws.quicksight#AmazonElasticsearchParameters": {
@@ -785,6 +1001,33 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#Anchor": {
+            "type": "structure",
+            "members": {
+                "AnchorType": {
+                    "target": "com.amazonaws.quicksight#AnchorType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The <code>AnchorType</code> for the Anchor.</p>"
+                    }
+                },
+                "TimeGranularity": {
+                    "target": "com.amazonaws.quicksight#TimeGranularity",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The <code>TimeGranularity</code> of the Anchor.</p>"
+                    }
+                },
+                "Offset": {
+                    "target": "com.amazonaws.quicksight#Integer",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The offset of the Anchor.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition of the Anchor.</p>"
+            }
+        },
         "com.amazonaws.quicksight#AnchorDateConfiguration": {
             "type": "structure",
             "members": {
@@ -812,6 +1055,17 @@
                     "target": "smithy.api#Unit",
                     "traits": {
                         "smithy.api#enumValue": "NOW"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.quicksight#AnchorType": {
+            "type": "enum",
+            "members": {
+                "TODAY": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "TODAY"
                     }
                 }
             }
@@ -866,10 +1120,31 @@
                     "traits": {
                         "smithy.api#documentation": "<p>The Q search bar that you want to use for anonymous user embedding.</p>"
                     }
+                },
+                "GenerativeQnA": {
+                    "target": "com.amazonaws.quicksight#AnonymousUserGenerativeQnAEmbeddingConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Generative Q&A experience that you want to use for anonymous user embedding.</p>"
+                    }
                 }
             },
             "traits": {
                 "smithy.api#documentation": "<p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#AnonymousUserGenerativeQnAEmbeddingConfiguration": {
+            "type": "structure",
+            "members": {
+                "InitialTopicId": {
+                    "target": "com.amazonaws.quicksight#RestrictiveResourceId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon QuickSight Q topic ID of the new reader experience topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Generative Q&A experience with this new reader experience topic pre selected.</p>\n         <p>The Amazon Resource Name (ARN) of this Q new reader experience topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request fails with an <code>InvalidParameterValueException</code> error.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The settings that you want to use for the Generative Q&A experience.</p>"
             }
         },
         "com.amazonaws.quicksight#AnonymousUserQSearchBarEmbeddingConfiguration": {
@@ -878,7 +1153,7 @@
                 "InitialTopicId": {
                     "target": "com.amazonaws.quicksight#RestrictiveResourceId",
                     "traits": {
-                        "smithy.api#documentation": "<p>The QuickSight Q topic ID of the topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Q search bar with this topic pre-selected.</p>\n         <p>The Amazon Resource Name (ARN) of this Q topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>",
+                        "smithy.api#documentation": "<p>The Amazon QuickSight Q topic ID of the legacy topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Q search bar with this legacy topic pre-selected.</p>\n         <p>The Amazon Resource Name (ARN) of this Q legacy topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request fails with an <code>InvalidParameterValueException</code> error.</p>",
                         "smithy.api#required": {}
                     }
                 }
@@ -905,6 +1180,22 @@
             "type": "list",
             "member": {
                 "target": "com.amazonaws.quicksight#AnonymousUserSnapshotJobResult"
+            }
+        },
+        "com.amazonaws.quicksight#AnswerId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 256
+                },
+                "smithy.api#pattern": "^[A-Za-z0-9-_.\\\\+]*$"
+            }
+        },
+        "com.amazonaws.quicksight#AnswerIds": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#AnswerId"
             }
         },
         "com.amazonaws.quicksight#ArcAxisConfiguration": {
@@ -1428,6 +1719,12 @@
                     "traits": {
                         "smithy.api#enumValue": "RoleArn"
                     }
+                },
+                "PRODUCT_TYPE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "ProductType"
+                    }
                 }
             }
         },
@@ -1779,7 +2076,7 @@
                 }
             },
             "traits": {
-                "smithy.api#documentation": "<p>The option to relax the validation that is required to export each asset. When <code>StrictModeForAllResource</code> is set to true, validation is skipped for specific UI errors.</p>"
+                "smithy.api#documentation": "<p>The option to relax the validation that is required to export each asset. When <code>StrictModeForAllResource</code> is set to <code>false</code>, validation is skipped for specific UI errors.</p>"
             }
         },
         "com.amazonaws.quicksight#AssetBundleExportJobWarning": {
@@ -2824,6 +3121,32 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#AssetBundleImportJobWarning": {
+            "type": "structure",
+            "members": {
+                "Arn": {
+                    "target": "com.amazonaws.quicksight#Arn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ARN of the resource that the warning occurred for.</p>"
+                    }
+                },
+                "Message": {
+                    "target": "com.amazonaws.quicksight#NonEmptyString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A description of the warning that occurred during an Asset Bundle import job.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Describes a warning that occurred during an Asset Bundle import job.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#AssetBundleImportJobWarningList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#AssetBundleImportJobWarning"
+            }
+        },
         "com.amazonaws.quicksight#AssetBundleImportSource": {
             "type": "structure",
             "members": {
@@ -3840,6 +4163,230 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#BatchCreateTopicReviewedAnswer": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.quicksight#BatchCreateTopicReviewedAnswerRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.quicksight#BatchCreateTopicReviewedAnswerResponse"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.quicksight#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InternalFailureException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InvalidParameterValueException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ThrottlingException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Creates new reviewed answers for a Q Topic.</p>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.quicksight#BatchCreateTopicReviewedAnswerRequest": {
+            "type": "structure",
+            "members": {
+                "AwsAccountId": {
+                    "target": "com.amazonaws.quicksight#AwsAccountId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Amazon Web Services account that you want to create a reviewed answer in.</p>",
+                        "smithy.api#httpLabel": {},
+                        "smithy.api#required": {}
+                    }
+                },
+                "TopicId": {
+                    "target": "com.amazonaws.quicksight#TopicId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID for the topic reviewed answer that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>",
+                        "smithy.api#httpLabel": {},
+                        "smithy.api#required": {}
+                    }
+                },
+                "Answers": {
+                    "target": "com.amazonaws.quicksight#CreateTopicReviewedAnswers",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The definition of the Answers to be created.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.quicksight#BatchCreateTopicReviewedAnswerResponse": {
+            "type": "structure",
+            "members": {
+                "TopicId": {
+                    "target": "com.amazonaws.quicksight#TopicId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID for the topic reviewed answer that you want to create. This ID is unique per Amazon Web Services Region\n         for each Amazon Web Services account.</p>"
+                    }
+                },
+                "TopicArn": {
+                    "target": "com.amazonaws.quicksight#Arn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the topic.</p>"
+                    }
+                },
+                "SucceededAnswers": {
+                    "target": "com.amazonaws.quicksight#SucceededTopicReviewedAnswers",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The definition of Answers that are successfully created.</p>"
+                    }
+                },
+                "InvalidAnswers": {
+                    "target": "com.amazonaws.quicksight#InvalidTopicReviewedAnswers",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The definition of Answers that are invalid and not created.</p>"
+                    }
+                },
+                "Status": {
+                    "target": "com.amazonaws.quicksight#StatusCode",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The HTTP status of the request.</p>",
+                        "smithy.api#httpResponseCode": {}
+                    }
+                },
+                "RequestId": {
+                    "target": "com.amazonaws.quicksight#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Web Services request ID for this operation.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.quicksight#BatchDeleteTopicReviewedAnswer": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.quicksight#BatchDeleteTopicReviewedAnswerRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.quicksight#BatchDeleteTopicReviewedAnswerResponse"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.quicksight#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ConflictException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InternalFailureException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InvalidParameterValueException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ThrottlingException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Deletes reviewed answers for Q Topic.</p>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.quicksight#BatchDeleteTopicReviewedAnswerRequest": {
+            "type": "structure",
+            "members": {
+                "AwsAccountId": {
+                    "target": "com.amazonaws.quicksight#AwsAccountId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Amazon Web Services account that you want to delete a reviewed answers in.</p>",
+                        "smithy.api#httpLabel": {},
+                        "smithy.api#required": {}
+                    }
+                },
+                "TopicId": {
+                    "target": "com.amazonaws.quicksight#TopicId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID for the topic reviewed answer that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>",
+                        "smithy.api#httpLabel": {},
+                        "smithy.api#required": {}
+                    }
+                },
+                "AnswerIds": {
+                    "target": "com.amazonaws.quicksight#AnswerIds",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Answer IDs of the Answers to be deleted.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.quicksight#BatchDeleteTopicReviewedAnswerResponse": {
+            "type": "structure",
+            "members": {
+                "TopicId": {
+                    "target": "com.amazonaws.quicksight#TopicId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the topic reviewed answer that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>"
+                    }
+                },
+                "TopicArn": {
+                    "target": "com.amazonaws.quicksight#Arn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the topic.</p>"
+                    }
+                },
+                "SucceededAnswers": {
+                    "target": "com.amazonaws.quicksight#SucceededTopicReviewedAnswers",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The definition of Answers that are successfully deleted.</p>"
+                    }
+                },
+                "InvalidAnswers": {
+                    "target": "com.amazonaws.quicksight#InvalidTopicReviewedAnswers",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The definition of Answers that are invalid and not deleted.</p>"
+                    }
+                },
+                "RequestId": {
+                    "target": "com.amazonaws.quicksight#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Web Services request ID for this operation.</p>"
+                    }
+                },
+                "Status": {
+                    "target": "com.amazonaws.quicksight#StatusCode",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The HTTP status of the request.</p>",
+                        "smithy.api#httpResponseCode": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
         "com.amazonaws.quicksight#BigQueryParameters": {
             "type": "structure",
             "members": {
@@ -3948,6 +4495,12 @@
                     "traits": {
                         "smithy.api#documentation": "<p>The configuration of a page break for a section.</p>"
                     }
+                },
+                "RepeatConfiguration": {
+                    "target": "com.amazonaws.quicksight#BodySectionRepeatConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Describes the configurations that are required to declare a section as repeating.</p>"
+                    }
                 }
             },
             "traits": {
@@ -3978,6 +4531,148 @@
             },
             "traits": {
                 "smithy.api#documentation": "<p>The configuration of content in a body section.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#BodySectionDynamicCategoryDimensionConfiguration": {
+            "type": "structure",
+            "members": {
+                "Column": {
+                    "target": "com.amazonaws.quicksight#ColumnIdentifier",
+                    "traits": {
+                        "smithy.api#required": {}
+                    }
+                },
+                "Limit": {
+                    "target": "com.amazonaws.quicksight#BodySectionDynamicDimensionLimit",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Number of values to use from the column for repetition.</p>"
+                    }
+                },
+                "SortByMetrics": {
+                    "target": "com.amazonaws.quicksight#BodySectionDynamicDimensionSortConfigurationList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Sort criteria on the column values that you use for repetition. </p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Describes the <b>Category</b> dataset column and constraints for the dynamic values used to repeat the contents of a section.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#BodySectionDynamicDimensionLimit": {
+            "type": "integer",
+            "traits": {
+                "smithy.api#range": {
+                    "min": 1,
+                    "max": 1000
+                }
+            }
+        },
+        "com.amazonaws.quicksight#BodySectionDynamicDimensionSortConfigurationList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#ColumnSort"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 100
+                }
+            }
+        },
+        "com.amazonaws.quicksight#BodySectionDynamicNumericDimensionConfiguration": {
+            "type": "structure",
+            "members": {
+                "Column": {
+                    "target": "com.amazonaws.quicksight#ColumnIdentifier",
+                    "traits": {
+                        "smithy.api#required": {}
+                    }
+                },
+                "Limit": {
+                    "target": "com.amazonaws.quicksight#BodySectionDynamicDimensionLimit",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Number of values to use from the column for repetition.</p>"
+                    }
+                },
+                "SortByMetrics": {
+                    "target": "com.amazonaws.quicksight#BodySectionDynamicDimensionSortConfigurationList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Sort criteria on the column values that you use for repetition. </p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Describes the <b>Numeric</b> dataset column and constraints for the dynamic values used to repeat the  contents of a section.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#BodySectionRepeatConfiguration": {
+            "type": "structure",
+            "members": {
+                "DimensionConfigurations": {
+                    "target": "com.amazonaws.quicksight#BodySectionRepeatDimensionConfigurationList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>List of <code>BodySectionRepeatDimensionConfiguration</code> values that describe the dataset column and constraints for the column used to repeat the contents of a section.</p>"
+                    }
+                },
+                "PageBreakConfiguration": {
+                    "target": "com.amazonaws.quicksight#BodySectionRepeatPageBreakConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Page break configuration to apply for each repeating instance.</p>"
+                    }
+                },
+                "NonRepeatingVisuals": {
+                    "target": "com.amazonaws.quicksight#NonRepeatingVisualsList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>List of visuals to exclude from repetition in repeating sections. The visuals will render identically, and ignore the repeating configurations in all repeating instances.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Describes the configurations that are required to declare a section as repeating.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#BodySectionRepeatDimensionConfiguration": {
+            "type": "structure",
+            "members": {
+                "DynamicCategoryDimensionConfiguration": {
+                    "target": "com.amazonaws.quicksight#BodySectionDynamicCategoryDimensionConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Describes the <b>Category</b> dataset column and constraints around the dynamic values that will be used in repeating the section contents.</p>"
+                    }
+                },
+                "DynamicNumericDimensionConfiguration": {
+                    "target": "com.amazonaws.quicksight#BodySectionDynamicNumericDimensionConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Describes the <b>Numeric</b> dataset column and constraints around the dynamic values used to repeat the  contents of a section.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Describes the dataset column and constraints for the dynamic values used to repeat the contents of a section. The dataset column is either <b>Category</b> or <b>Numeric</b> column configuration</p>"
+            }
+        },
+        "com.amazonaws.quicksight#BodySectionRepeatDimensionConfigurationList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#BodySectionRepeatDimensionConfiguration"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 3
+                }
+            }
+        },
+        "com.amazonaws.quicksight#BodySectionRepeatPageBreakConfiguration": {
+            "type": "structure",
+            "members": {
+                "After": {
+                    "target": "com.amazonaws.quicksight#SectionAfterPageBreak"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The page break configuration to apply for each repeating instance.</p>"
             }
         },
         "com.amazonaws.quicksight#BookmarksConfigurations": {
@@ -4363,6 +5058,18 @@
                 "smithy.api#sensitive": {}
             }
         },
+        "com.amazonaws.quicksight#CalculatedFieldReferenceList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#Identifier"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 250
+                }
+            }
+        },
         "com.amazonaws.quicksight#CalculatedFields": {
             "type": "list",
             "member": {
@@ -4693,7 +5400,7 @@
                 }
             },
             "traits": {
-                "smithy.api#documentation": "<p>The numeric equality type drill down filter.</p>"
+                "smithy.api#documentation": "<p>The category drill down filter.</p>"
             }
         },
         "com.amazonaws.quicksight#CategoryFilter": {
@@ -4718,6 +5425,12 @@
                     "traits": {
                         "smithy.api#documentation": "<p>The configuration for a <code>CategoryFilter</code>.</p>",
                         "smithy.api#required": {}
+                    }
+                },
+                "DefaultFilterControlConfiguration": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterControlConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>"
                     }
                 }
             },
@@ -4843,6 +5556,29 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#CategoryInnerFilter": {
+            "type": "structure",
+            "members": {
+                "Column": {
+                    "target": "com.amazonaws.quicksight#ColumnIdentifier",
+                    "traits": {
+                        "smithy.api#required": {}
+                    }
+                },
+                "Configuration": {
+                    "target": "com.amazonaws.quicksight#CategoryFilterConfiguration",
+                    "traits": {
+                        "smithy.api#required": {}
+                    }
+                },
+                "DefaultFilterControlConfiguration": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterControlConfiguration"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>A <code>CategoryInnerFilter</code> filters text values for the <code>NestedFilter</code>.</p>"
+            }
+        },
         "com.amazonaws.quicksight#CategoryValue": {
             "type": "string",
             "traits": {
@@ -4965,6 +5701,38 @@
             },
             "traits": {
                 "smithy.api#documentation": "<p>A structure that represents a collective constant.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#CollectiveConstantEntry": {
+            "type": "structure",
+            "members": {
+                "ConstantType": {
+                    "target": "com.amazonaws.quicksight#ConstantType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The <code>ConstantType</code> of a <code>CollectiveConstantEntry</code>.</p>"
+                    }
+                },
+                "Value": {
+                    "target": "com.amazonaws.quicksight#ConstantValueString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The value of a <code>CollectiveConstantEntry</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>CollectiveConstantEntry</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#CollectiveConstantEntryList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#CollectiveConstantEntry"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 2000
+                }
             }
         },
         "com.amazonaws.quicksight#ColorFillType": {
@@ -5930,6 +6698,71 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#ComparisonMethodType": {
+            "type": "enum",
+            "members": {
+                "DIFF": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "DIFF"
+                    }
+                },
+                "PERC_DIFF": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PERC_DIFF"
+                    }
+                },
+                "DIFF_AS_PERC": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "DIFF_AS_PERC"
+                    }
+                },
+                "POP_CURRENT_DIFF_AS_PERC": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "POP_CURRENT_DIFF_AS_PERC"
+                    }
+                },
+                "POP_CURRENT_DIFF": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "POP_CURRENT_DIFF"
+                    }
+                },
+                "POP_OVERTIME_DIFF_AS_PERC": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "POP_OVERTIME_DIFF_AS_PERC"
+                    }
+                },
+                "POP_OVERTIME_DIFF": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "POP_OVERTIME_DIFF"
+                    }
+                },
+                "PERCENT_OF_TOTAL": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PERCENT_OF_TOTAL"
+                    }
+                },
+                "RUNNING_SUM": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "RUNNING_SUM"
+                    }
+                },
+                "MOVING_AVERAGE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "MOVING_AVERAGE"
+                    }
+                }
+            }
+        },
         "com.amazonaws.quicksight#Computation": {
             "type": "structure",
             "members": {
@@ -6322,6 +7155,15 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#ConstantValueString": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 1024
+                }
+            }
+        },
         "com.amazonaws.quicksight#ContextMenuOption": {
             "type": "structure",
             "members": {
@@ -6368,6 +7210,104 @@
                     "min": 1,
                     "max": 200
                 }
+            }
+        },
+        "com.amazonaws.quicksight#ContributionAnalysisDirection": {
+            "type": "enum",
+            "members": {
+                "INCREASE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "INCREASE"
+                    }
+                },
+                "DECREASE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "DECREASE"
+                    }
+                },
+                "NEUTRAL": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "NEUTRAL"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.quicksight#ContributionAnalysisFactor": {
+            "type": "structure",
+            "members": {
+                "FieldName": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The field name of the <code>ContributionAnalysisFactor</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for the <code>ContributionAnalysisFactor</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#ContributionAnalysisFactorsList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#ContributionAnalysisFactor"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 50
+                }
+            }
+        },
+        "com.amazonaws.quicksight#ContributionAnalysisSortType": {
+            "type": "enum",
+            "members": {
+                "ABSOLUTE_DIFFERENCE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "ABSOLUTE_DIFFERENCE"
+                    }
+                },
+                "CONTRIBUTION_PERCENTAGE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "CONTRIBUTION_PERCENTAGE"
+                    }
+                },
+                "DEVIATION_FROM_EXPECTED": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "DEVIATION_FROM_EXPECTED"
+                    }
+                },
+                "PERCENTAGE_DIFFERENCE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PERCENTAGE_DIFFERENCE"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.quicksight#ContributionAnalysisTimeRanges": {
+            "type": "structure",
+            "members": {
+                "StartRange": {
+                    "target": "com.amazonaws.quicksight#TopicIRFilterOption",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The start range for the <code>ContributionAnalysisTimeRanges</code>.</p>"
+                    }
+                },
+                "EndRange": {
+                    "target": "com.amazonaws.quicksight#TopicIRFilterOption",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The end range for the <code>ContributionAnalysisTimeRanges</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for the <code>ContributionAnalysisTimeRanges</code>.</p>"
             }
         },
         "com.amazonaws.quicksight#ContributorDimensionList": {
@@ -6565,8 +7505,7 @@
                 "Edition": {
                     "target": "com.amazonaws.quicksight#Edition",
                     "traits": {
-                        "smithy.api#documentation": "<p>The edition of Amazon QuickSight that you want your account to have. Currently, you can\n            choose from <code>ENTERPRISE</code> or\n                <code>ENTERPRISE_AND_Q</code>.</p>\n         <p>If you choose <code>ENTERPRISE_AND_Q</code>, the following parameters are\n            required:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>FirstName</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastName</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>EmailAddress</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ContactNumber</code>\n               </p>\n            </li>\n         </ul>",
-                        "smithy.api#required": {}
+                        "smithy.api#documentation": "<p>The edition of Amazon QuickSight that you want your account to have. Currently, you can\n            choose from <code>ENTERPRISE</code> or\n                <code>ENTERPRISE_AND_Q</code>.</p>\n         <p>If you choose <code>ENTERPRISE_AND_Q</code>, the following parameters are\n            required:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>FirstName</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastName</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>EmailAddress</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ContactNumber</code>\n               </p>\n            </li>\n         </ul>"
                     }
                 },
                 "AuthenticationMethod": {
@@ -6619,7 +7558,7 @@
                 "AdminGroup": {
                     "target": "com.amazonaws.quicksight#GroupsList",
                     "traits": {
-                        "smithy.api#documentation": "<p>The admin group associated with your Active Directory or IAM Identity Center account. This field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new Amazon QuickSight account.</p>\n         <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html\">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html\">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>"
+                        "smithy.api#documentation": "<p>The admin group associated with your Active Directory or IAM Identity Center account. Either this field or the <code>AdminProGroup</code> field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new Amazon QuickSight account.</p>\n         <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html\">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html\">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>"
                     }
                 },
                 "AuthorGroup": {
@@ -6632,6 +7571,24 @@
                     "target": "com.amazonaws.quicksight#GroupsList",
                     "traits": {
                         "smithy.api#documentation": "<p>The reader group associated with your Active Directory or IAM Identity Center account.</p>\n         <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html\">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html\">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>"
+                    }
+                },
+                "AdminProGroup": {
+                    "target": "com.amazonaws.quicksight#GroupsList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The admin pro group associated with your Active Directory or IAM Identity Center account. Either this field or the <code>AdminGroup</code> field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new Amazon QuickSight account.</p>\n         <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html\">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html\">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>"
+                    }
+                },
+                "AuthorProGroup": {
+                    "target": "com.amazonaws.quicksight#GroupsList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The author pro group associated with your Active Directory or IAM Identity Center account.</p>\n         <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html\">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html\">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>"
+                    }
+                },
+                "ReaderProGroup": {
+                    "target": "com.amazonaws.quicksight#GroupsList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The reader pro group associated with your Active Directory or IAM Identity Center account.</p>\n         <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html\">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html\">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>"
                     }
                 },
                 "FirstName": {
@@ -6656,6 +7613,12 @@
                     "target": "com.amazonaws.quicksight#String",
                     "traits": {
                         "smithy.api#documentation": "<p>A 10-digit phone number for the author of the Amazon QuickSight account to use for\n            future communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the\n            selected edition of the new Amazon QuickSight account.</p>"
+                    }
+                },
+                "IAMIdentityCenterInstanceArn": {
+                    "target": "com.amazonaws.quicksight#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>"
                     }
                 }
             },
@@ -9270,6 +10233,65 @@
             },
             "traits": {
                 "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.quicksight#CreateTopicReviewedAnswer": {
+            "type": "structure",
+            "members": {
+                "AnswerId": {
+                    "target": "com.amazonaws.quicksight#AnswerId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The answer ID for the <code>CreateTopicReviewedAnswer</code>.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "DatasetArn": {
+                    "target": "com.amazonaws.quicksight#Arn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Dataset arn for the <code>CreateTopicReviewedAnswer</code>.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Question": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Question to be created.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Mir": {
+                    "target": "com.amazonaws.quicksight#TopicIR",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Mir for the <code>CreateTopicReviewedAnswer</code>.</p>"
+                    }
+                },
+                "PrimaryVisual": {
+                    "target": "com.amazonaws.quicksight#TopicVisual",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The <code>PrimaryVisual</code> for the <code>CreateTopicReviewedAnswer</code>.</p>"
+                    }
+                },
+                "Template": {
+                    "target": "com.amazonaws.quicksight#TopicTemplate",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The template for the <code>CreateTopicReviewedAnswer</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>CreateTopicReviewedAnswer</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#CreateTopicReviewedAnswers": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#CreateTopicReviewedAnswer"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 100
+                }
             }
         },
         "com.amazonaws.quicksight#CreateVPCConnection": {
@@ -12896,6 +13918,18 @@
                     "traits": {
                         "smithy.api#documentation": "<p>The configuration of info icon label options.</p>"
                     }
+                },
+                "HelperTextVisibility": {
+                    "target": "com.amazonaws.quicksight#Visibility",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The helper text visibility of the <code>DateTimePickerControlDisplayOptions</code>.</p>"
+                    }
+                },
+                "DateIconVisibility": {
+                    "target": "com.amazonaws.quicksight#Visibility",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The date icon visibility of the <code>DateTimePickerControlDisplayOptions</code>.</p>"
+                    }
                 }
             },
             "traits": {
@@ -13322,6 +14356,150 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#DefaultDateTimePickerControlOptions": {
+            "type": "structure",
+            "members": {
+                "Type": {
+                    "target": "com.amazonaws.quicksight#SheetControlDateTimePickerType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The date time picker type of the <code>DefaultDateTimePickerControlOptions</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DATE_RANGE</code>: The filter condition is a date time range.</p>\n            </li>\n         </ul>"
+                    }
+                },
+                "DisplayOptions": {
+                    "target": "com.amazonaws.quicksight#DateTimePickerControlDisplayOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display options of a control.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The default options that correspond to the filter control type of a <code>DateTimePicker</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#DefaultFilterControlConfiguration": {
+            "type": "structure",
+            "members": {
+                "Title": {
+                    "target": "com.amazonaws.quicksight#SheetControlTitle",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The title of the <code>DefaultFilterControlConfiguration</code>. This title is shared by all controls that are tied to this filter.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "ControlOptions": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterControlOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The control option for the <code>DefaultFilterControlConfiguration</code>.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The default configuration for all dependent controls of the filter.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#DefaultFilterControlOptions": {
+            "type": "structure",
+            "members": {
+                "DefaultDateTimePickerOptions": {
+                    "target": "com.amazonaws.quicksight#DefaultDateTimePickerControlOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default options that correspond to the filter control type of a <code>DateTimePicker</code>.</p>"
+                    }
+                },
+                "DefaultListOptions": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterListControlOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default options that correspond to the <code>List</code> filter control type.</p>"
+                    }
+                },
+                "DefaultDropdownOptions": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterDropDownControlOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default options that correspond to the <code>Dropdown</code> filter control type.</p>"
+                    }
+                },
+                "DefaultTextFieldOptions": {
+                    "target": "com.amazonaws.quicksight#DefaultTextFieldControlOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default options that correspond to the <code>TextField</code> filter control type.</p>"
+                    }
+                },
+                "DefaultTextAreaOptions": {
+                    "target": "com.amazonaws.quicksight#DefaultTextAreaControlOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default options that correspond to the <code>TextArea</code> filter control type.</p>"
+                    }
+                },
+                "DefaultSliderOptions": {
+                    "target": "com.amazonaws.quicksight#DefaultSliderControlOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default options that correspond to the <code>Slider</code> filter control type.</p>"
+                    }
+                },
+                "DefaultRelativeDateTimeOptions": {
+                    "target": "com.amazonaws.quicksight#DefaultRelativeDateTimeControlOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default options that correspond to the <code>RelativeDateTime</code> filter control type.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The option that corresponds to the control type of the filter.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#DefaultFilterDropDownControlOptions": {
+            "type": "structure",
+            "members": {
+                "DisplayOptions": {
+                    "target": "com.amazonaws.quicksight#DropDownControlDisplayOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display options of a control.</p>"
+                    }
+                },
+                "Type": {
+                    "target": "com.amazonaws.quicksight#SheetControlListType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The type of the <code>FilterDropDownControl</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>\n            </li>\n         </ul>"
+                    }
+                },
+                "SelectableValues": {
+                    "target": "com.amazonaws.quicksight#FilterSelectableValues",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of selectable values that are used in a control.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The default options that correspond to the <code>Dropdown</code> filter control type.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#DefaultFilterListControlOptions": {
+            "type": "structure",
+            "members": {
+                "DisplayOptions": {
+                    "target": "com.amazonaws.quicksight#ListControlDisplayOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display options of a control.</p>"
+                    }
+                },
+                "Type": {
+                    "target": "com.amazonaws.quicksight#SheetControlListType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The type of the <code>DefaultFilterListControlOptions</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>\n            </li>\n         </ul>"
+                    }
+                },
+                "SelectableValues": {
+                    "target": "com.amazonaws.quicksight#FilterSelectableValues",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of selectable values that are used in a control.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The default options that correspond to the <code>List</code> filter control type.</p>"
+            }
+        },
         "com.amazonaws.quicksight#DefaultFormatting": {
             "type": "structure",
             "members": {
@@ -13432,6 +14610,20 @@
                 "smithy.api#documentation": "<p>The options that determine the default settings for a paginated layout configuration.</p>"
             }
         },
+        "com.amazonaws.quicksight#DefaultRelativeDateTimeControlOptions": {
+            "type": "structure",
+            "members": {
+                "DisplayOptions": {
+                    "target": "com.amazonaws.quicksight#RelativeDateTimeControlDisplayOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display options of a control.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The default options that correspond to the <code>RelativeDateTime</code> filter control type.</p>"
+            }
+        },
         "com.amazonaws.quicksight#DefaultSectionBasedLayoutConfiguration": {
             "type": "structure",
             "members": {
@@ -13445,6 +14637,84 @@
             },
             "traits": {
                 "smithy.api#documentation": "<p>The options that determine the default settings for a section-based layout configuration.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#DefaultSliderControlOptions": {
+            "type": "structure",
+            "members": {
+                "DisplayOptions": {
+                    "target": "com.amazonaws.quicksight#SliderControlDisplayOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display options of a control.</p>"
+                    }
+                },
+                "Type": {
+                    "target": "com.amazonaws.quicksight#SheetControlSliderType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The type of the <code>DefaultSliderControlOptions</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RANGE</code>: Filter data that is in a specified range.</p>\n            </li>\n         </ul>"
+                    }
+                },
+                "MaximumValue": {
+                    "target": "com.amazonaws.quicksight#Double",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The larger value that is displayed at the right of the slider.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "MinimumValue": {
+                    "target": "com.amazonaws.quicksight#Double",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The smaller value that is displayed at the left of the slider.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "StepSize": {
+                    "target": "com.amazonaws.quicksight#Double",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The number of increments that the slider bar is divided into.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The default options that correspond to the <code>Slider</code> filter control type.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#DefaultTextAreaControlOptions": {
+            "type": "structure",
+            "members": {
+                "Delimiter": {
+                    "target": "com.amazonaws.quicksight#TextAreaControlDelimiter",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The delimiter that is used to separate the lines in text.</p>"
+                    }
+                },
+                "DisplayOptions": {
+                    "target": "com.amazonaws.quicksight#TextAreaControlDisplayOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display options of a control.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The default options that correspond to the <code>TextArea</code> filter control type.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#DefaultTextFieldControlOptions": {
+            "type": "structure",
+            "members": {
+                "DisplayOptions": {
+                    "target": "com.amazonaws.quicksight#TextFieldControlDisplayOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display options of a control.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The default options that correspond to the <code>TextField</code> filter control type.</p>"
             }
         },
         "com.amazonaws.quicksight#DeleteAccountCustomization": {
@@ -16907,6 +18177,12 @@
                     "traits": {
                         "smithy.api#documentation": "<p>An optional validation strategy override for all analyses and dashboards to be applied to the resource configuration before import.</p>"
                     }
+                },
+                "Warnings": {
+                    "target": "com.amazonaws.quicksight#AssetBundleImportJobWarningList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>An array of warning records that describe all permitted errors that are encountered during the import job.</p>"
+                    }
                 }
             },
             "traits": {
@@ -18853,6 +20129,94 @@
                         "smithy.api#default": 0,
                         "smithy.api#documentation": "<p>The HTTP status of the request.\n\t\t\t</p>",
                         "smithy.api#httpResponseCode": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.quicksight#DescribeKeyRegistration": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.quicksight#DescribeKeyRegistrationRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.quicksight#DescribeKeyRegistrationResponse"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.quicksight#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InternalFailureException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InvalidParameterValueException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ThrottlingException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Describes all customer managed key registrations in a Amazon QuickSight account.</p>",
+                "smithy.api#http": {
+                    "method": "GET",
+                    "uri": "/accounts/{AwsAccountId}/key-registration",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.quicksight#DescribeKeyRegistrationRequest": {
+            "type": "structure",
+            "members": {
+                "AwsAccountId": {
+                    "target": "com.amazonaws.quicksight#AwsAccountId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to describe.</p>",
+                        "smithy.api#httpLabel": {},
+                        "smithy.api#required": {}
+                    }
+                },
+                "DefaultKeyOnly": {
+                    "target": "com.amazonaws.quicksight#Boolean",
+                    "traits": {
+                        "smithy.api#default": false,
+                        "smithy.api#documentation": "<p>Determines whether the request returns the default key only.</p>",
+                        "smithy.api#httpQuery": "default-key-only"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.quicksight#DescribeKeyRegistrationResponse": {
+            "type": "structure",
+            "members": {
+                "AwsAccountId": {
+                    "target": "com.amazonaws.quicksight#AwsAccountId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Amazon Web Services account that contains the customer managed key registration specified in the request.</p>"
+                    }
+                },
+                "KeyRegistration": {
+                    "target": "com.amazonaws.quicksight#KeyRegistration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of <code>RegisteredCustomerManagedKey</code> objects in a Amazon QuickSight account.</p>"
+                    }
+                },
+                "RequestId": {
+                    "target": "com.amazonaws.quicksight#NonEmptyString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Web Services request ID for this operation.</p>"
+                    }
+                },
+                "Status": {
+                    "target": "com.amazonaws.quicksight#StatusCode",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The HTTP status of the request.</p>"
                     }
                 }
             },
@@ -21208,6 +22572,49 @@
                 "smithy.api#sensitive": {}
             }
         },
+        "com.amazonaws.quicksight#FailedKeyRegistrationEntries": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#FailedKeyRegistrationEntry"
+            }
+        },
+        "com.amazonaws.quicksight#FailedKeyRegistrationEntry": {
+            "type": "structure",
+            "members": {
+                "KeyArn": {
+                    "target": "com.amazonaws.quicksight#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ARN of the KMS key that failed to update.</p>"
+                    }
+                },
+                "Message": {
+                    "target": "com.amazonaws.quicksight#NonEmptyString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A message that provides information about why a <code>FailedKeyRegistrationEntry</code> error occurred.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "StatusCode": {
+                    "target": "com.amazonaws.quicksight#StatusCode",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The HTTP status of a <code>FailedKeyRegistrationEntry</code> error.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "SenderFault": {
+                    "target": "com.amazonaws.quicksight#Boolean",
+                    "traits": {
+                        "smithy.api#default": false,
+                        "smithy.api#documentation": "<p>A boolean that indicates whether a <code>FailedKeyRegistrationEntry</code> resulted from user error. If the value of this property is <code>True</code>, the error was caused by user error. If the value of this property is <code>False</code>, the error occurred on the backend. If your job continues fail and with a <code>False</code>\n            <code>SenderFault</code> value, contact Amazon Web Services Support.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>An entry that appears when a <code>KeyRegistration</code> update to Amazon QuickSight fails.</p>"
+            }
+        },
         "com.amazonaws.quicksight#FieldBasedTooltip": {
             "type": "structure",
             "members": {
@@ -21768,10 +23175,54 @@
                     "traits": {
                         "smithy.api#documentation": "<p>A <code>TopBottomFilter</code> filters data to the top or bottom values for a given column.</p>"
                     }
+                },
+                "NestedFilter": {
+                    "target": "com.amazonaws.quicksight#NestedFilter",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A <code>NestedFilter</code> filters data with a subset of data that is defined by the nested inner filter.</p>"
+                    }
                 }
             },
             "traits": {
                 "smithy.api#documentation": "<p>With a <code>Filter</code>, you can remove portions of data from a particular visual or view.</p>\n         <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#FilterAggMetrics": {
+            "type": "structure",
+            "members": {
+                "MetricOperand": {
+                    "target": "com.amazonaws.quicksight#Identifier",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The metric operand of the <code>FilterAggMetrics</code>.</p>"
+                    }
+                },
+                "Function": {
+                    "target": "com.amazonaws.quicksight#AggType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The function for the <code>FilterAggMetrics</code>.</p>"
+                    }
+                },
+                "SortDirection": {
+                    "target": "com.amazonaws.quicksight#TopicSortDirection",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The sort direction for <code>FilterAggMetrics</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for the <code>FilterAggMetrics</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#FilterAggMetricsList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#FilterAggMetrics"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 100
+                }
             }
         },
         "com.amazonaws.quicksight#FilterClass": {
@@ -21841,6 +23292,12 @@
                     "traits": {
                         "smithy.api#documentation": "<p>A control from a date filter that is used to specify the relative date.</p>"
                     }
+                },
+                "CrossSheet": {
+                    "target": "com.amazonaws.quicksight#FilterCrossSheetControl",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet</p>"
+                    }
                 }
             },
             "traits": {
@@ -21857,6 +23314,34 @@
                     "min": 0,
                     "max": 200
                 }
+            }
+        },
+        "com.amazonaws.quicksight#FilterCrossSheetControl": {
+            "type": "structure",
+            "members": {
+                "FilterControlId": {
+                    "target": "com.amazonaws.quicksight#ShortRestrictiveResourceId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the <code>FilterCrossSheetControl</code>.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "SourceFilterId": {
+                    "target": "com.amazonaws.quicksight#ShortRestrictiveResourceId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The source filter ID of the <code>FilterCrossSheetControl</code>.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "CascadingControlConfiguration": {
+                    "target": "com.amazonaws.quicksight#CascadingControlConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet</p>"
             }
         },
         "com.amazonaws.quicksight#FilterDateTimePickerControl": {
@@ -21892,7 +23377,7 @@
                 "Type": {
                     "target": "com.amazonaws.quicksight#SheetControlDateTimePickerType",
                     "traits": {
-                        "smithy.api#documentation": "<p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DATE_RANGE</code>: The filter condition is a date time range.</p>\n            </li>\n         </ul>"
+                        "smithy.api#documentation": "<p>The type of the <code>FilterDropDownControl</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>\n            </li>\n         </ul>"
                     }
                 }
             },
@@ -22085,7 +23570,7 @@
                 "Type": {
                     "target": "com.amazonaws.quicksight#SheetControlListType",
                     "traits": {
-                        "smithy.api#documentation": "<p>The type of <code>FilterListControl</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>\n            </li>\n         </ul>"
+                        "smithy.api#documentation": "<p>The type of the <code>FilterListControl</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>\n            </li>\n         </ul>"
                     }
                 },
                 "SelectableValues": {
@@ -22247,7 +23732,7 @@
                 "AllSheets": {
                     "target": "com.amazonaws.quicksight#AllSheetsFilterScopeConfiguration",
                     "traits": {
-                        "smithy.api#documentation": "<p>The configuration for applying a filter to all sheets.</p>"
+                        "smithy.api#documentation": "<p>The configuration that applies a filter to all sheets. When you choose <code>AllSheets</code> as the value for a <code>FilterScopeConfiguration</code>, this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The <code>AllSheetsFilterScopeConfiguration</code> is chosen.</p>"
                     }
                 }
             },
@@ -22302,14 +23787,14 @@
                 "Type": {
                     "target": "com.amazonaws.quicksight#SheetControlSliderType",
                     "traits": {
-                        "smithy.api#documentation": "<p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RANGE</code>: Filter data that is in a specified range.</p>\n            </li>\n         </ul>"
+                        "smithy.api#documentation": "<p>The type of the <code>FilterSliderControl</code>. Choose one of the following options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RANGE</code>: Filter data that is in a specified range.</p>\n            </li>\n         </ul>"
                     }
                 },
                 "MaximumValue": {
                     "target": "com.amazonaws.quicksight#Double",
                     "traits": {
                         "smithy.api#default": 0,
-                        "smithy.api#documentation": "<p>The smaller value that is displayed at the left of the slider.</p>",
+                        "smithy.api#documentation": "<p>The larger value that is displayed at the right of the slider.</p>",
                         "smithy.api#required": {}
                     }
                 },
@@ -22317,7 +23802,7 @@
                     "target": "com.amazonaws.quicksight#Double",
                     "traits": {
                         "smithy.api#default": 0,
-                        "smithy.api#documentation": "<p>The larger value that is displayed at the right of the slider.</p>",
+                        "smithy.api#documentation": "<p>The smaller value that is displayed at the left of the slider.</p>",
                         "smithy.api#required": {}
                     }
                 },
@@ -23526,6 +25011,26 @@
                 "smithy.api#documentation": "<p>The options that determine the presentation of the arc of a <code>GaugeChartVisual</code>.</p>"
             }
         },
+        "com.amazonaws.quicksight#GaugeChartColorConfiguration": {
+            "type": "structure",
+            "members": {
+                "ForegroundColor": {
+                    "target": "com.amazonaws.quicksight#HexColor",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The foreground color configuration of a <code>GaugeChartVisual</code>.</p>"
+                    }
+                },
+                "BackgroundColor": {
+                    "target": "com.amazonaws.quicksight#HexColor",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The background color configuration of a <code>GaugeChartVisual</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The color configuration of a <code>GaugeChartVisual</code>.</p>"
+            }
+        },
         "com.amazonaws.quicksight#GaugeChartConditionalFormatting": {
             "type": "structure",
             "members": {
@@ -23603,6 +25108,12 @@
                     "target": "com.amazonaws.quicksight#VisualPalette",
                     "traits": {
                         "smithy.api#documentation": "<p>The visual palette configuration of a <code>GaugeChartVisual</code>.</p>"
+                    }
+                },
+                "ColorConfiguration": {
+                    "target": "com.amazonaws.quicksight#GaugeChartColorConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The color configuration of a <code>GaugeChartVisual</code>.</p>"
                     }
                 },
                 "Interactions": {
@@ -23948,7 +25459,7 @@
                 "ExperienceConfiguration": {
                     "target": "com.amazonaws.quicksight#RegisteredUserEmbeddingExperienceConfiguration",
                     "traits": {
-                        "smithy.api#documentation": "<p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon QuickSight Q search bar, or the entire Amazon QuickSight console.</p>",
+                        "smithy.api#documentation": "<p>The experience that you want to embed. For registered users, you can embed Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon QuickSight Q search bar, the Amazon QuickSight Generative Q&A experience, or the entire Amazon QuickSight console.</p>",
                         "smithy.api#required": {}
                     }
                 },
@@ -23969,7 +25480,7 @@
                 "EmbedUrl": {
                     "target": "com.amazonaws.quicksight#EmbeddingUrl",
                     "traits": {
-                        "smithy.api#documentation": "<p>The embed URL for the Amazon QuickSight dashboard, visual, Q search bar, or console.</p>",
+                        "smithy.api#documentation": "<p>The embed URL for the Amazon QuickSight dashboard, visual, Q search bar, Generative Q&A experience, or console.</p>",
                         "smithy.api#required": {}
                     }
                 },
@@ -25861,6 +27372,21 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#Identifier": {
+            "type": "structure",
+            "members": {
+                "Identity": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The identity of the identifier.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for the identifier.</p>"
+            }
+        },
         "com.amazonaws.quicksight#IdentityCenterConfiguration": {
             "type": "structure",
             "members": {
@@ -26451,6 +27977,20 @@
                 "target": "com.amazonaws.quicksight#Ingestion"
             }
         },
+        "com.amazonaws.quicksight#InnerFilter": {
+            "type": "structure",
+            "members": {
+                "CategoryInnerFilter": {
+                    "target": "com.amazonaws.quicksight#CategoryInnerFilter",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A <code>CategoryInnerFilter</code> filters text values for the <code>NestedFilter</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The <code>InnerFilter</code> defines the subset of data to be used with the <code>NestedFilter</code>.</p>"
+            }
+        },
         "com.amazonaws.quicksight#InputColumn": {
             "type": "structure",
             "members": {
@@ -26891,6 +28431,32 @@
                 "smithy.api#documentation": "<p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>",
                 "smithy.api#error": "client",
                 "smithy.api#httpError": 400
+            }
+        },
+        "com.amazonaws.quicksight#InvalidTopicReviewedAnswer": {
+            "type": "structure",
+            "members": {
+                "AnswerId": {
+                    "target": "com.amazonaws.quicksight#AnswerId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The answer ID for the <code>InvalidTopicReviewedAnswer</code>.</p>"
+                    }
+                },
+                "Error": {
+                    "target": "com.amazonaws.quicksight#ReviewedAnswerErrorCode",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The error that is returned for the <code>InvalidTopicReviewedAnswer</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>InvalidTopicReviewedAnswer</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#InvalidTopicReviewedAnswers": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#InvalidTopicReviewedAnswer"
             }
         },
         "com.amazonaws.quicksight#IpRestrictionRuleDescription": {
@@ -27450,6 +29016,12 @@
                         "smithy.api#enumValue": "VERTICAL"
                     }
                 }
+            }
+        },
+        "com.amazonaws.quicksight#KeyRegistration": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#RegisteredCustomerManagedKey"
             }
         },
         "com.amazonaws.quicksight#LabelOptions": {
@@ -31152,6 +32724,104 @@
                 "smithy.api#output": {}
             }
         },
+        "com.amazonaws.quicksight#ListTopicReviewedAnswers": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.quicksight#ListTopicReviewedAnswersRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.quicksight#ListTopicReviewedAnswersResponse"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.quicksight#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InternalFailureException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InvalidParameterValueException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ThrottlingException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Lists all reviewed answers for a Q Topic.</p>",
+                "smithy.api#http": {
+                    "method": "GET",
+                    "uri": "/accounts/{AwsAccountId}/topics/{TopicId}/reviewed-answers",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.quicksight#ListTopicReviewedAnswersRequest": {
+            "type": "structure",
+            "members": {
+                "AwsAccountId": {
+                    "target": "com.amazonaws.quicksight#AwsAccountId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Amazon Web Services account that containd the reviewed answers that you want listed.</p>",
+                        "smithy.api#httpLabel": {},
+                        "smithy.api#required": {}
+                    }
+                },
+                "TopicId": {
+                    "target": "com.amazonaws.quicksight#TopicId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID for the topic that contains the reviewed answer that you want to list. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>",
+                        "smithy.api#httpLabel": {},
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.quicksight#ListTopicReviewedAnswersResponse": {
+            "type": "structure",
+            "members": {
+                "TopicId": {
+                    "target": "com.amazonaws.quicksight#TopicId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID for the topic that contains the reviewed answer that you want to list. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>"
+                    }
+                },
+                "TopicArn": {
+                    "target": "com.amazonaws.quicksight#Arn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the topic.</p>"
+                    }
+                },
+                "Answers": {
+                    "target": "com.amazonaws.quicksight#TopicReviewedAnswers",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The definition of all Answers in the topic.</p>"
+                    }
+                },
+                "Status": {
+                    "target": "com.amazonaws.quicksight#StatusCode",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The HTTP status of the request.</p>",
+                        "smithy.api#httpResponseCode": {}
+                    }
+                },
+                "RequestId": {
+                    "target": "com.amazonaws.quicksight#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Web Services request ID for this operation.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
         "com.amazonaws.quicksight#ListTopics": {
             "type": "operation",
             "input": {
@@ -32406,6 +34076,20 @@
                 "target": "com.amazonaws.quicksight#NamedEntityDefinition"
             }
         },
+        "com.amazonaws.quicksight#NamedEntityRef": {
+            "type": "structure",
+            "members": {
+                "NamedEntityName": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The <code>NamedEntityName</code> for the <code>NamedEntityRef</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>NamedEntityRef</code>.</p>"
+            }
+        },
         "com.amazonaws.quicksight#NamedFilterAggType": {
             "type": "enum",
             "members": {
@@ -32711,6 +34395,43 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#NestedFilter": {
+            "type": "structure",
+            "members": {
+                "FilterId": {
+                    "target": "com.amazonaws.quicksight#ShortRestrictiveResourceId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Column": {
+                    "target": "com.amazonaws.quicksight#ColumnIdentifier",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The column that the filter is applied to.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "IncludeInnerSet": {
+                    "target": "com.amazonaws.quicksight#Boolean",
+                    "traits": {
+                        "smithy.api#default": false,
+                        "smithy.api#documentation": "<p>A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "InnerFilter": {
+                    "target": "com.amazonaws.quicksight#InnerFilter",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The <code>InnerFilter</code> defines the subset of data to be used with the <code>NestedFilter</code>.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>A <code>NestedFilter</code> filters data with a subset of data that is defined by the nested inner filter.</p>"
+            }
+        },
         "com.amazonaws.quicksight#NetworkInterface": {
             "type": "structure",
             "members": {
@@ -32866,6 +34587,41 @@
             "type": "string",
             "traits": {
                 "smithy.api#pattern": "\\S"
+            }
+        },
+        "com.amazonaws.quicksight#NonRepeatingVisualsList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#ShortRestrictiveResourceId"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 20
+                }
+            }
+        },
+        "com.amazonaws.quicksight#NullFilterOption": {
+            "type": "enum",
+            "members": {
+                "ALL_VALUES": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "ALL_VALUES"
+                    }
+                },
+                "NON_NULLS_ONLY": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "NON_NULLS_ONLY"
+                    }
+                },
+                "NULLS_ONLY": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "NULLS_ONLY"
+                    }
+                }
             }
         },
         "com.amazonaws.quicksight#NullString": {
@@ -33041,7 +34797,7 @@
                 }
             },
             "traits": {
-                "smithy.api#documentation": "<p>The category drill down filter.</p>"
+                "smithy.api#documentation": "<p>The numeric equality type drill down filter.</p>"
             }
         },
         "com.amazonaws.quicksight#NumericEqualityFilter": {
@@ -33098,6 +34854,12 @@
                     "traits": {
                         "smithy.api#documentation": "<p>This option determines how null values should be treated when filtering data.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ALL_VALUES</code>: Include null values in filtered results.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>\n            </li>\n         </ul>",
                         "smithy.api#required": {}
+                    }
+                },
+                "DefaultFilterControlConfiguration": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterControlConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>"
                     }
                 }
             },
@@ -33219,6 +34981,12 @@
                     "traits": {
                         "smithy.api#documentation": "<p>This option determines how null values should be treated when filtering data.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ALL_VALUES</code>: Include null values in filtered results.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>\n            </li>\n         </ul>",
                         "smithy.api#required": {}
+                    }
+                },
+                "DefaultFilterControlConfiguration": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterControlConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>"
                     }
                 }
             },
@@ -33384,6 +35152,18 @@
                 "smithy.api#length": {
                     "min": 1,
                     "max": 512
+                }
+            }
+        },
+        "com.amazonaws.quicksight#OperandList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#Identifier"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 25
                 }
             }
         },
@@ -34052,7 +35832,7 @@
                     "target": "com.amazonaws.quicksight#Double",
                     "traits": {
                         "smithy.api#default": 0,
-                        "smithy.api#documentation": "<p>The smaller value that is displayed at the left of the slider.</p>",
+                        "smithy.api#documentation": "<p>The larger value that is displayed at the right of the slider.</p>",
                         "smithy.api#required": {}
                     }
                 },
@@ -34060,7 +35840,7 @@
                     "target": "com.amazonaws.quicksight#Double",
                     "traits": {
                         "smithy.api#default": 0,
-                        "smithy.api#documentation": "<p>The larger value that is displayed at the right of the slider.</p>",
+                        "smithy.api#documentation": "<p>The smaller value that is displayed at the left of the slider.</p>",
                         "smithy.api#required": {}
                     }
                 },
@@ -34801,7 +36581,7 @@
             "traits": {
                 "smithy.api#length": {
                     "min": 0,
-                    "max": 100
+                    "max": 500
                 }
             }
         },
@@ -35813,6 +37593,23 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#PurchaseMode": {
+            "type": "enum",
+            "members": {
+                "MANUAL": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "MANUAL"
+                    }
+                },
+                "AUTO_PURCHASE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "AUTO_PURCHASE"
+                    }
+                }
+            }
+        },
         "com.amazonaws.quicksight#PutDataSetRefreshProperties": {
             "type": "operation",
             "input": {
@@ -35963,6 +37760,12 @@
             "type": "service",
             "version": "2018-04-01",
             "operations": [
+                {
+                    "target": "com.amazonaws.quicksight#BatchCreateTopicReviewedAnswer"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#BatchDeleteTopicReviewedAnswer"
+                },
                 {
                     "target": "com.amazonaws.quicksight#CancelIngestion"
                 },
@@ -36189,6 +37992,9 @@
                     "target": "com.amazonaws.quicksight#DescribeIpRestriction"
                 },
                 {
+                    "target": "com.amazonaws.quicksight#DescribeKeyRegistration"
+                },
+                {
                     "target": "com.amazonaws.quicksight#DescribeNamespace"
                 },
                 {
@@ -36327,6 +38133,9 @@
                     "target": "com.amazonaws.quicksight#ListTopicRefreshSchedules"
                 },
                 {
+                    "target": "com.amazonaws.quicksight#ListTopicReviewedAnswers"
+                },
+                {
                     "target": "com.amazonaws.quicksight#ListTopics"
                 },
                 {
@@ -36435,6 +38244,9 @@
                     "target": "com.amazonaws.quicksight#UpdateIpRestriction"
                 },
                 {
+                    "target": "com.amazonaws.quicksight#UpdateKeyRegistration"
+                },
+                {
                     "target": "com.amazonaws.quicksight#UpdatePublicSharingSettings"
                 },
                 {
@@ -36442,6 +38254,9 @@
                 },
                 {
                     "target": "com.amazonaws.quicksight#UpdateRoleCustomPermission"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#UpdateSPICECapacityConfiguration"
                 },
                 {
                     "target": "com.amazonaws.quicksight#UpdateTemplate"
@@ -37728,8 +39543,7 @@
                 "DatabaseUser": {
                     "target": "com.amazonaws.quicksight#DatabaseUser",
                     "traits": {
-                        "smithy.api#documentation": "<p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>",
-                        "smithy.api#required": {}
+                        "smithy.api#documentation": "<p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>"
                     }
                 },
                 "DatabaseGroups": {
@@ -38304,7 +40118,7 @@
                 "IdentityType": {
                     "target": "com.amazonaws.quicksight#IdentityType",
                     "traits": {
-                        "smithy.api#documentation": "<p>Amazon QuickSight supports several ways of managing the identity of users. This\n\t\t\tparameter accepts two values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>IAM</code>: A user whose identity maps to an existing IAM user or role.\n\t\t\t\t</p>\n            </li>\n            <li>\n               <p>\n                  <code>QUICKSIGHT</code>: A user whose identity is owned and managed internally by\n\t\t\t\t\tAmazon QuickSight. </p>\n            </li>\n         </ul>",
+                        "smithy.api#documentation": "<p>The identity type that your Amazon QuickSight account uses to manage the identity of users.</p>",
                         "smithy.api#required": {}
                     }
                 },
@@ -38318,7 +40132,7 @@
                 "UserRole": {
                     "target": "com.amazonaws.quicksight#UserRole",
                     "traits": {
-                        "smithy.api#documentation": "<p>The Amazon QuickSight role for the user. The user role can be one of the\n\t\t\tfollowing:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>READER</code>: A user who has read-only access to dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and\n\t\t\t\t\tdashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight\n\t\t\t\t\tsettings.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RESTRICTED_READER</code>: This role isn't currently available for\n\t\t\t\t\tuse.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for\n\t\t\t\t\tuse.</p>\n            </li>\n         </ul>",
+                        "smithy.api#documentation": "<p>The Amazon QuickSight role for the user. The user role can be one of the\n\t\t\tfollowing:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>READER</code>: A user who has read-only access to dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and\n\t\t\t\t\tdashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight\n\t\t\t\t\tsettings.</p>\n            </li>\n            <li>\n               <p>\n                  <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RESTRICTED_READER</code>: This role isn't currently available for\n\t\t\t\t\tuse.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for\n\t\t\t\t\tuse.</p>\n            </li>\n         </ul>",
                         "smithy.api#required": {}
                     }
                 },
@@ -38359,7 +40173,7 @@
                 "CustomPermissionsName": {
                     "target": "com.amazonaws.quicksight#RoleName",
                     "traits": {
-                        "smithy.api#documentation": "<p>(Enterprise edition only) The name of the custom permissions profile that you want to\n            assign to this user. Customized permissions allows you to control a user's access by\n            restricting access the following operations:</p>\n         <ul>\n            <li>\n               <p>Create and update data sources</p>\n            </li>\n            <li>\n               <p>Create and update datasets</p>\n            </li>\n            <li>\n               <p>Create and update email reports</p>\n            </li>\n            <li>\n               <p>Subscribe to email reports</p>\n            </li>\n         </ul>\n         <p>To add custom permissions to an existing user, use <code>\n               <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html\">UpdateUser</a>\n            </code> instead.</p>\n         <p>A set of custom permissions includes any combination of these restrictions. Currently,\n            you need to create the profile names for custom permission sets by using the Amazon QuickSight\n            console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of\n            permissions to a Amazon QuickSight user. </p>\n         <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they\n            override the permissions typically granted by assigning Amazon QuickSight users to one of the\n            default security cohorts in Amazon QuickSight (admin, author, reader).</p>\n         <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>"
+                        "smithy.api#documentation": "<p>(Enterprise edition only) The name of the custom permissions profile that you want to\n            assign to this user. Customized permissions allows you to control a user's access by\n            restricting access the following operations:</p>\n         <ul>\n            <li>\n               <p>Create and update data sources</p>\n            </li>\n            <li>\n               <p>Create and update datasets</p>\n            </li>\n            <li>\n               <p>Create and update email reports</p>\n            </li>\n            <li>\n               <p>Subscribe to email reports</p>\n            </li>\n         </ul>\n         <p>To add custom permissions to an existing user, use <code>\n               <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html\">UpdateUser</a>\n            </code> instead.</p>\n         <p>A set of custom permissions includes any combination of these restrictions. Currently,\n            you need to create the profile names for custom permission sets by using the Amazon QuickSight\n            console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of\n            permissions to a Amazon QuickSight user. </p>\n         <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they\n            override the permissions typically granted by assigning Amazon QuickSight users to one of the\n            default security cohorts in Amazon QuickSight (admin, author, reader, admin pro, author pro, reader pro).</p>\n         <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>"
                     }
                 },
                 "ExternalLoginFederationProviderType": {
@@ -38423,6 +40237,27 @@
             },
             "traits": {
                 "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.quicksight#RegisteredCustomerManagedKey": {
+            "type": "structure",
+            "members": {
+                "KeyArn": {
+                    "target": "com.amazonaws.quicksight#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ARN of the KMS key that is registered to a Amazon QuickSight account for encryption and decryption use.</p>"
+                    }
+                },
+                "DefaultKey": {
+                    "target": "com.amazonaws.quicksight#Boolean",
+                    "traits": {
+                        "smithy.api#default": false,
+                        "smithy.api#documentation": "<p>Indicates whether a <code>RegisteredCustomerManagedKey</code> is set as the default key for encryption and decryption use.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>A customer managed key structure that contains the information listed below: </p>\n         <ul>\n            <li>\n               <p>\n                  <code>KeyArn</code> - The ARN of a KMS key that is registered to a Amazon QuickSight account for encryption and decryption use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DefaultKey</code> - Indicates whether the current key is set as the default key for encryption and decryption use.</p>\n            </li>\n         </ul>"
             }
         },
         "com.amazonaws.quicksight#RegisteredUserConsoleFeatureConfigurations": {
@@ -38521,10 +40356,30 @@
                     "traits": {
                         "smithy.api#documentation": "<p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>"
                     }
+                },
+                "GenerativeQnA": {
+                    "target": "com.amazonaws.quicksight#RegisteredUserGenerativeQnAEmbeddingConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The configuration details for embedding the Generative Q&A experience.</p>\n         <p>For more information about embedding the Generative Q&A experience, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html\">Embedding Overview</a> in\n                the <i>Amazon QuickSight User Guide</i>.</p>"
+                    }
                 }
             },
             "traits": {
                 "smithy.api#documentation": "<p>The type of experience you want to embed. For registered users, you can embed Amazon QuickSight dashboards or the Amazon QuickSight console.</p>\n         <note>\n            <p>Exactly one of the experience configurations is required. You can choose\n                    <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more\n                than one experience configuration.</p>\n         </note>"
+            }
+        },
+        "com.amazonaws.quicksight#RegisteredUserGenerativeQnAEmbeddingConfiguration": {
+            "type": "structure",
+            "members": {
+                "InitialTopicId": {
+                    "target": "com.amazonaws.quicksight#RestrictiveResourceId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the new Q reader experience topic that you want to make the starting topic in the Generative Q&A experience.\n        You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight application and opening\n        a topic. The ID is in the URL for the topic that you open.</p>\n         <p>If you don't specify an initial topic or you specify a legacy topic, a list of all shared new reader experience topics is shown in the Generative Q&A experience for your readers. When you select an initial new reader experience topic, you can specify whether or not readers are allowed to select other new reader experience topics from the available ones in the list.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>An object that provides information about the configuration of a Generative Q&A experience.</p>"
             }
         },
         "com.amazonaws.quicksight#RegisteredUserQSearchBarEmbeddingConfiguration": {
@@ -38533,7 +40388,7 @@
                 "InitialTopicId": {
                     "target": "com.amazonaws.quicksight#RestrictiveResourceId",
                     "traits": {
-                        "smithy.api#documentation": "<p>The ID of the Q topic that you want to make the starting topic in the Q search bar.\n      You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight application and opening\n      a topic. The ID is in the URL for the topic that you open.</p>\n         <p>If you don't specify an initial topic, a list of all shared topics is shown in the Q bar\n      for your readers. When you select an initial topic, you can specify whether or not readers\n      are allowed to select other topics from the available ones in the list.</p>"
+                        "smithy.api#documentation": "<p>The ID of the legacy Q topic that you want to use as the starting topic in the Q search bar. To locate the topic ID of the topic that you want to use, open the <a href=\"https://quicksight.aws.amazon.com/\">Amazon QuickSight console</a>, navigate to the <b>Topics</b> pane, and choose thre topic that you want to use. The <code>TopicID</code> is located in the URL of the topic that opens. When you select an initial topic, you can specify whether or not readers\n      are allowed to select other topics from the list of available topics.</p>\n         <p>If you don't specify an initial topic or if you specify a new reader experience topic, a list of all shared legacy topics is shown in the Q bar. </p>"
                     }
                 }
             },
@@ -38758,6 +40613,12 @@
                     "target": "com.amazonaws.quicksight#ExcludePeriodConfiguration",
                     "traits": {
                         "smithy.api#documentation": "<p>The configuration for the exclude period of the filter.</p>"
+                    }
+                },
+                "DefaultFilterControlConfiguration": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterControlConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>"
                     }
                 }
             },
@@ -39112,6 +40973,53 @@
                 "smithy.api#pattern": "^[\\w\\-]+$"
             }
         },
+        "com.amazonaws.quicksight#ReviewedAnswerErrorCode": {
+            "type": "enum",
+            "members": {
+                "INTERNAL_ERROR": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "INTERNAL_ERROR"
+                    }
+                },
+                "MISSING_ANSWER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "MISSING_ANSWER"
+                    }
+                },
+                "DATASET_DOES_NOT_EXIST": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "DATASET_DOES_NOT_EXIST"
+                    }
+                },
+                "INVALID_DATASET_ARN": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "INVALID_DATASET_ARN"
+                    }
+                },
+                "DUPLICATED_ANSWER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "DUPLICATED_ANSWER"
+                    }
+                },
+                "INVALID_DATA": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "INVALID_DATA"
+                    }
+                },
+                "MISSING_REQUIRED_FIELDS": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "MISSING_REQUIRED_FIELDS"
+                    }
+                }
+            }
+        },
         "com.amazonaws.quicksight#Role": {
             "type": "enum",
             "members": {
@@ -39131,6 +41039,24 @@
                     "target": "smithy.api#Unit",
                     "traits": {
                         "smithy.api#enumValue": "READER"
+                    }
+                },
+                "ADMIN_PRO": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "ADMIN_PRO"
+                    }
+                },
+                "AUTHOR_PRO": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "AUTHOR_PRO"
+                    }
+                },
+                "READER_PRO": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "READER_PRO"
                     }
                 }
             }
@@ -41118,7 +43044,7 @@
             "traits": {
                 "smithy.api#length": {
                     "min": 0,
-                    "max": 10
+                    "max": 2000
                 }
             }
         },
@@ -42047,6 +43973,32 @@
             },
             "traits": {
                 "smithy.api#documentation": "<p>The display options of a control.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#Slot": {
+            "type": "structure",
+            "members": {
+                "SlotId": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The slot ID of the slot.</p>"
+                    }
+                },
+                "VisualId": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The visual ID for the slot.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for the slot.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#Slots": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#Slot"
             }
         },
         "com.amazonaws.quicksight#SmallMultiplesAxisPlacement": {
@@ -43150,7 +45102,7 @@
                 }
             ],
             "traits": {
-                "smithy.api#documentation": "<p>Starts an asynchronous job that generates a dashboard snapshot. You can request one of the following format configurations per API call.</p>\n         <ul>\n            <li>\n               <p>1 paginated PDF</p>\n            </li>\n            <li>\n               <p>1 Excel workbook</p>\n            </li>\n            <li>\n               <p>5 CSVs</p>\n            </li>\n         </ul>\n         <p>Poll job descriptions with a <code>DescribeDashboardSnapshotJob</code> API call. Once the job succeeds, use the <code>DescribeDashboardSnapshotJobResult</code> API to obtain the download URIs that the job generates.</p>",
+                "smithy.api#documentation": "<p>Starts an asynchronous job that generates a snapshot of a dashboard's output. You can request one or several of the following format configurations in each API call.</p>\n         <ul>\n            <li>\n               <p>1 Paginated PDF</p>\n            </li>\n            <li>\n               <p>1 Excel workbook that includes up to 5 table or pivot table visuals</p>\n            </li>\n            <li>\n               <p>5 CSVs from table or pivot table visuals</p>\n            </li>\n         </ul>\n         <p>The status of a submitted job can be polled with the <code>DescribeDashboardSnapshotJob</code> API. When you call the  <code>DescribeDashboardSnapshotJob</code> API, check the <code>JobStatus</code> field in the response. Once the job reaches a <code>COMPLETED</code> or <code>FAILED</code> status, use the <code>DescribeDashboardSnapshotJobResult</code> API to obtain the URLs for the generated files. If the job fails, the <code>DescribeDashboardSnapshotJobResult</code> API returns detailed information about the error that occurred.</p>\n         <p>\n            <b>StartDashboardSnapshotJob API throttling</b>\n         </p>\n         <p>Amazon QuickSight utilizes API throttling to create a more consistent user experience within a time span for customers when they call the <code>StartDashboardSnapshotJob</code>. By default, 12 jobs can run simlutaneously in one Amazon Web Services account and users can submit up 10 API requests per second before an account is throttled. If an overwhelming number of API requests are made by the same user in a short period of time, Amazon QuickSight throttles the API calls to maintin an optimal experience and reliability for all Amazon QuickSight users.</p>\n         <p>\n            <b>Common throttling scenarios</b>\n         </p>\n         <p>The following list provides information about the most commin throttling scenarios that can occur.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>A large number of <code>SnapshotExport</code> API jobs are running simultaneously on an Amazon Web Services account.</b> When a new <code>StartDashboardSnapshotJob</code> is created and there are already 12 jobs with the <code>RUNNING</code> status, the new job request fails and returns a <code>LimitExceededException</code> error. Wait for a current job to comlpete before you resubmit the new job.</p>\n            </li>\n            <li>\n               <p>\n                  <b>A large number of API requests are submitted on an Amazon Web Services account.</b> When a user makes more than 10 API calls to the Amazon QuickSight API in one second, a <code>ThrottlingException</code> is returned.</p>\n            </li>\n         </ul>\n         <p>If your use case requires a higher throttling limit, contact your account admin or <a href=\"http://aws.amazon.com/contact-us/\">Amazon Web ServicesSupport</a> to explore options to tailor a more optimal expereince for your account.</p>\n         <p>\n            <b>Best practices to handle throttling</b>\n         </p>\n         <p>If your use case projects high levels of API traffic, try to reduce the degree of frequency and parallelism of API calls as much as you can to avoid throttling. You can also perform a timing test to calculate an estimate for the total processing time of your projected load that stays within the throttling limits of the Amazon QuickSight APIs. For example, if your projected traffic is 100 snapshot jobs before 12:00 PM per day, start 12 jobs in parallel and measure the amount of time it takes to proccess all 12 jobs. Once you obtain the result, multiply the duration by 9, for example <code>(12 minutes * 9 = 108 minutes)</code>. Use the new result to determine the latest time at which the jobs need to be started to meet your target deadline.</p>\n         <p>The time that it takes to process a job can be impacted by the following factors:</p>\n         <ul>\n            <li>\n               <p>The dataset type (Direct Query or SPICE).</p>\n            </li>\n            <li>\n               <p>The size of the dataset.</p>\n            </li>\n            <li>\n               <p>The complexity of the calculated fields that are used in the dashboard.</p>\n            </li>\n            <li>\n               <p>The number of visuals that are on a sheet.</p>\n            </li>\n            <li>\n               <p>The types of visuals that are on the sheet.</p>\n            </li>\n            <li>\n               <p>The number of formats and snapshots that are requested in the job configuration.</p>\n            </li>\n            <li>\n               <p>The size of the generated snapshots.</p>\n            </li>\n         </ul>",
                 "smithy.api#http": {
                     "method": "POST",
                     "uri": "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs",
@@ -43600,6 +45552,55 @@
                 "smithy.api#documentation": "<p>The subtotal options.</p>"
             }
         },
+        "com.amazonaws.quicksight#SucceededTopicReviewedAnswer": {
+            "type": "structure",
+            "members": {
+                "AnswerId": {
+                    "target": "com.amazonaws.quicksight#AnswerId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The answer ID for the <code>SucceededTopicReviewedAnswer</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>SucceededTopicReviewedAnswer</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#SucceededTopicReviewedAnswers": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#SucceededTopicReviewedAnswer"
+            }
+        },
+        "com.amazonaws.quicksight#SuccessfulKeyRegistrationEntries": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#SuccessfulKeyRegistrationEntry"
+            }
+        },
+        "com.amazonaws.quicksight#SuccessfulKeyRegistrationEntry": {
+            "type": "structure",
+            "members": {
+                "KeyArn": {
+                    "target": "com.amazonaws.quicksight#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ARN of the KMS key that is associated with the <code>SuccessfulKeyRegistrationEntry</code> entry.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "StatusCode": {
+                    "target": "com.amazonaws.quicksight#StatusCode",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The HTTP status of a <code>SuccessfulKeyRegistrationEntry</code> entry.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>A success entry that occurs when a <code>KeyRegistration</code> job is successfully applied to the Amazon QuickSight account.</p>"
+            }
+        },
         "com.amazonaws.quicksight#Suffix": {
             "type": "string",
             "traits": {
@@ -43844,7 +45845,7 @@
             "traits": {
                 "smithy.api#length": {
                     "min": 0,
-                    "max": 100
+                    "max": 500
                 }
             }
         },
@@ -45764,6 +47765,12 @@
                     "traits": {
                         "smithy.api#documentation": "<p>The rolling date input for the <code>TimeEquality</code> filter.</p>\n         <p>This field is mutually exclusive to <code>Value</code> and <code>ParameterName</code>.</p>"
                     }
+                },
+                "DefaultFilterControlConfiguration": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterControlConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>"
+                    }
                 }
             },
             "traits": {
@@ -45925,6 +47932,12 @@
                     "target": "com.amazonaws.quicksight#TimeGranularity",
                     "traits": {
                         "smithy.api#documentation": "<p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>"
+                    }
+                },
+                "DefaultFilterControlConfiguration": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterControlConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>"
                     }
                 }
             },
@@ -46117,6 +48130,12 @@
                     "target": "com.amazonaws.quicksight#ParameterName",
                     "traits": {
                         "smithy.api#documentation": "<p>The parameter whose value should be used for the filter value.</p>"
+                    }
+                },
+                "DefaultFilterControlConfiguration": {
+                    "target": "com.amazonaws.quicksight#DefaultFilterControlConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>"
                     }
                 }
             },
@@ -46562,6 +48581,44 @@
                 "target": "com.amazonaws.quicksight#TopicColumn"
             }
         },
+        "com.amazonaws.quicksight#TopicConstantValue": {
+            "type": "structure",
+            "members": {
+                "ConstantType": {
+                    "target": "com.amazonaws.quicksight#ConstantType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The constant type of a <code>TopicConstantValue</code>.</p>"
+                    }
+                },
+                "Value": {
+                    "target": "com.amazonaws.quicksight#ConstantValueString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The value of the <code>TopicConstantValue</code>.</p>"
+                    }
+                },
+                "Minimum": {
+                    "target": "com.amazonaws.quicksight#ConstantValueString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The minimum for the <code>TopicConstantValue</code>.</p>"
+                    }
+                },
+                "Maximum": {
+                    "target": "com.amazonaws.quicksight#ConstantValueString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The maximum for the <code>TopicConstantValue</code>.</p>"
+                    }
+                },
+                "ValueList": {
+                    "target": "com.amazonaws.quicksight#CollectiveConstantEntryList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The value list of the <code>TopicConstantValue</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>TopicConstantValue</code>.</p>"
+            }
+        },
         "com.amazonaws.quicksight#TopicDateRangeFilter": {
             "type": "structure",
             "members": {
@@ -46695,6 +48752,499 @@
             "type": "list",
             "member": {
                 "target": "com.amazonaws.quicksight#TopicFilter"
+            }
+        },
+        "com.amazonaws.quicksight#TopicIR": {
+            "type": "structure",
+            "members": {
+                "Metrics": {
+                    "target": "com.amazonaws.quicksight#TopicIRMetricList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The metrics for the <code>TopicIR</code>.</p>"
+                    }
+                },
+                "GroupByList": {
+                    "target": "com.amazonaws.quicksight#TopicIRGroupByList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The GroupBy list for the <code>TopicIR</code>.</p>"
+                    }
+                },
+                "Filters": {
+                    "target": "com.amazonaws.quicksight#TopicIRFilterList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The filters for the <code>TopicIR</code>.</p>"
+                    }
+                },
+                "Sort": {
+                    "target": "com.amazonaws.quicksight#TopicSortClause",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The sort for the <code>TopicIR</code>.</p>"
+                    }
+                },
+                "ContributionAnalysis": {
+                    "target": "com.amazonaws.quicksight#TopicIRContributionAnalysis",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The contribution analysis for the <code>TopicIR</code>.</p>"
+                    }
+                },
+                "Visual": {
+                    "target": "com.amazonaws.quicksight#VisualOptions",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The visual for the <code>TopicIR</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>TopicIR</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRComparisonMethod": {
+            "type": "structure",
+            "members": {
+                "Type": {
+                    "target": "com.amazonaws.quicksight#ComparisonMethodType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The type for the <code>TopicIRComparisonMethod</code>.</p>"
+                    }
+                },
+                "Period": {
+                    "target": "com.amazonaws.quicksight#TopicTimeGranularity",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The period for the <code>TopicIRComparisonMethod</code>.</p>"
+                    }
+                },
+                "WindowSize": {
+                    "target": "com.amazonaws.quicksight#Integer",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The window size for the <code>TopicIRComparisonMethod</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition of a <code>TopicIRComparisonMethod</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRContributionAnalysis": {
+            "type": "structure",
+            "members": {
+                "Factors": {
+                    "target": "com.amazonaws.quicksight#ContributionAnalysisFactorsList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The factors for a <code>TopicIRContributionAnalysis</code>.</p>"
+                    }
+                },
+                "TimeRanges": {
+                    "target": "com.amazonaws.quicksight#ContributionAnalysisTimeRanges",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The time ranges for the <code>TopicIRContributionAnalysis</code>.</p>"
+                    }
+                },
+                "Direction": {
+                    "target": "com.amazonaws.quicksight#ContributionAnalysisDirection",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The direction for the <code>TopicIRContributionAnalysis</code>.</p>"
+                    }
+                },
+                "SortType": {
+                    "target": "com.amazonaws.quicksight#ContributionAnalysisSortType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The sort type for the <code>TopicIRContributionAnalysis</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>TopicIRContributionAnalysis</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRFilterEntry": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#TopicIRFilterOption"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 2000
+                }
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRFilterFunction": {
+            "type": "enum",
+            "members": {
+                "CONTAINS": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "CONTAINS"
+                    }
+                },
+                "EXACT": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "EXACT"
+                    }
+                },
+                "STARTS_WITH": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "STARTS_WITH"
+                    }
+                },
+                "ENDS_WITH": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "ENDS_WITH"
+                    }
+                },
+                "CONTAINS_STRING": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "CONTAINS_STRING"
+                    }
+                },
+                "PREVIOUS": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PREVIOUS"
+                    }
+                },
+                "THIS": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "THIS"
+                    }
+                },
+                "LAST": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "LAST"
+                    }
+                },
+                "NEXT": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "NEXT"
+                    }
+                },
+                "NOW": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "NOW"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRFilterList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#TopicIRFilterEntry"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 2000
+                }
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRFilterOption": {
+            "type": "structure",
+            "members": {
+                "FilterType": {
+                    "target": "com.amazonaws.quicksight#TopicIRFilterType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The filter type for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "FilterClass": {
+                    "target": "com.amazonaws.quicksight#FilterClass",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The filter class for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "OperandField": {
+                    "target": "com.amazonaws.quicksight#Identifier",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The operand field for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "Function": {
+                    "target": "com.amazonaws.quicksight#TopicIRFilterFunction",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The function for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "Constant": {
+                    "target": "com.amazonaws.quicksight#TopicConstantValue",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The constant for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "Inverse": {
+                    "target": "com.amazonaws.quicksight#Boolean",
+                    "traits": {
+                        "smithy.api#default": false,
+                        "smithy.api#documentation": "<p>The inverse for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "NullFilter": {
+                    "target": "com.amazonaws.quicksight#NullFilterOption",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The null filter for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "Aggregation": {
+                    "target": "com.amazonaws.quicksight#AggType",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The aggregation for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "AggregationFunctionParameters": {
+                    "target": "com.amazonaws.quicksight#AggFunctionParamMap",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The aggregation function parameters for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "AggregationPartitionBy": {
+                    "target": "com.amazonaws.quicksight#AggregationPartitionByList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The <code>AggregationPartitionBy</code> for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "Range": {
+                    "target": "com.amazonaws.quicksight#TopicConstantValue",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The range for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "Inclusive": {
+                    "target": "com.amazonaws.quicksight#Boolean",
+                    "traits": {
+                        "smithy.api#default": false,
+                        "smithy.api#documentation": "<p>The inclusive for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "TimeGranularity": {
+                    "target": "com.amazonaws.quicksight#TimeGranularity",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The time granularity for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "LastNextOffset": {
+                    "target": "com.amazonaws.quicksight#TopicConstantValue",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The last next offset for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "AggMetrics": {
+                    "target": "com.amazonaws.quicksight#FilterAggMetricsList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The agg metrics for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "TopBottomLimit": {
+                    "target": "com.amazonaws.quicksight#TopicConstantValue",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The <code>TopBottomLimit</code> for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "SortDirection": {
+                    "target": "com.amazonaws.quicksight#TopicSortDirection",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The sort direction for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                },
+                "Anchor": {
+                    "target": "com.amazonaws.quicksight#Anchor",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The anchor for the <code>TopicIRFilterOption</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>TopicIRFilterOption</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRFilterType": {
+            "type": "enum",
+            "members": {
+                "CATEGORY_FILTER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "CATEGORY_FILTER"
+                    }
+                },
+                "NUMERIC_EQUALITY_FILTER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "NUMERIC_EQUALITY_FILTER"
+                    }
+                },
+                "NUMERIC_RANGE_FILTER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "NUMERIC_RANGE_FILTER"
+                    }
+                },
+                "DATE_RANGE_FILTER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "DATE_RANGE_FILTER"
+                    }
+                },
+                "RELATIVE_DATE_FILTER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "RELATIVE_DATE_FILTER"
+                    }
+                },
+                "TOP_BOTTOM_FILTER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "TOP_BOTTOM_FILTER"
+                    }
+                },
+                "EQUALS": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "EQUALS"
+                    }
+                },
+                "RANK_LIMIT_FILTER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "RANK_LIMIT_FILTER"
+                    }
+                },
+                "ACCEPT_ALL_FILTER": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "ACCEPT_ALL_FILTER"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRGroupBy": {
+            "type": "structure",
+            "members": {
+                "FieldName": {
+                    "target": "com.amazonaws.quicksight#Identifier",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The field name for the <code>TopicIRGroupBy</code>.</p>"
+                    }
+                },
+                "TimeGranularity": {
+                    "target": "com.amazonaws.quicksight#TopicTimeGranularity",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The time granularity for the <code>TopicIRGroupBy</code>.</p>"
+                    }
+                },
+                "Sort": {
+                    "target": "com.amazonaws.quicksight#TopicSortClause",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The sort for the <code>TopicIRGroupBy</code>.</p>"
+                    }
+                },
+                "DisplayFormat": {
+                    "target": "com.amazonaws.quicksight#DisplayFormat",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display format for the <code>TopicIRGroupBy</code>.</p>"
+                    }
+                },
+                "DisplayFormatOptions": {
+                    "target": "com.amazonaws.quicksight#DisplayFormatOptions"
+                },
+                "NamedEntity": {
+                    "target": "com.amazonaws.quicksight#NamedEntityRef",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The named entity for the <code>TopicIRGroupBy</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>TopicIRGroupBy</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRGroupByList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#TopicIRGroupBy"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 2000
+                }
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRMetric": {
+            "type": "structure",
+            "members": {
+                "MetricId": {
+                    "target": "com.amazonaws.quicksight#Identifier",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The metric ID for the <code>TopicIRMetric</code>.</p>"
+                    }
+                },
+                "Function": {
+                    "target": "com.amazonaws.quicksight#AggFunction",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The function for the <code>TopicIRMetric</code>.</p>"
+                    }
+                },
+                "Operands": {
+                    "target": "com.amazonaws.quicksight#OperandList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The operands for the <code>TopicIRMetric</code>.</p>"
+                    }
+                },
+                "ComparisonMethod": {
+                    "target": "com.amazonaws.quicksight#TopicIRComparisonMethod",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The comparison method for the <code>TopicIRMetric</code>.</p>"
+                    }
+                },
+                "Expression": {
+                    "target": "com.amazonaws.quicksight#Expression",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The expression for the <code>TopicIRMetric</code>.</p>"
+                    }
+                },
+                "CalculatedFieldReferences": {
+                    "target": "com.amazonaws.quicksight#CalculatedFieldReferenceList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The calculated field references for the <code>TopicIRMetric</code>.</p>"
+                    }
+                },
+                "DisplayFormat": {
+                    "target": "com.amazonaws.quicksight#DisplayFormat",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display format for the <code>TopicIRMetric</code>.</p>"
+                    }
+                },
+                "DisplayFormatOptions": {
+                    "target": "com.amazonaws.quicksight#DisplayFormatOptions"
+                },
+                "NamedEntity": {
+                    "target": "com.amazonaws.quicksight#NamedEntityRef",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The named entity for the <code>TopicIRMetric</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>TopicIRMetric</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicIRMetricList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#TopicIRMetric"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 2000
+                }
             }
         },
         "com.amazonaws.quicksight#TopicId": {
@@ -47044,6 +49594,65 @@
                 }
             }
         },
+        "com.amazonaws.quicksight#TopicReviewedAnswer": {
+            "type": "structure",
+            "members": {
+                "Arn": {
+                    "target": "com.amazonaws.quicksight#Arn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the reviewed answer.</p>"
+                    }
+                },
+                "AnswerId": {
+                    "target": "com.amazonaws.quicksight#AnswerId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The answer ID of the reviewed answer.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "DatasetArn": {
+                    "target": "com.amazonaws.quicksight#Arn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Dataset ARN for the <code>TopicReviewedAnswer</code>.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Question": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The question for the <code>TopicReviewedAnswer</code>.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Mir": {
+                    "target": "com.amazonaws.quicksight#TopicIR",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The mir for the <code>TopicReviewedAnswer</code>.</p>"
+                    }
+                },
+                "PrimaryVisual": {
+                    "target": "com.amazonaws.quicksight#TopicVisual",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The primary visual for the <code>TopicReviewedAnswer</code>.</p>"
+                    }
+                },
+                "Template": {
+                    "target": "com.amazonaws.quicksight#TopicTemplate",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The template for the <code>TopicReviewedAnswer</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The deinition for a <code>TopicReviewedAnswer</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicReviewedAnswers": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#TopicReviewedAnswer"
+            }
+        },
         "com.amazonaws.quicksight#TopicScheduleType": {
             "type": "enum",
             "members": {
@@ -47094,6 +49703,43 @@
                 "smithy.api#sensitive": {}
             }
         },
+        "com.amazonaws.quicksight#TopicSortClause": {
+            "type": "structure",
+            "members": {
+                "Operand": {
+                    "target": "com.amazonaws.quicksight#Identifier",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The operand for a <code>TopicSortClause</code>.</p>"
+                    }
+                },
+                "SortDirection": {
+                    "target": "com.amazonaws.quicksight#TopicSortDirection",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The sort direction for the <code>TopicSortClause</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>TopicSortClause</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicSortDirection": {
+            "type": "enum",
+            "members": {
+                "ASCENDING": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "ASCENDING"
+                    }
+                },
+                "DESCENDING": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "DESCENDING"
+                    }
+                }
+            }
+        },
         "com.amazonaws.quicksight#TopicSummaries": {
             "type": "list",
             "member": {
@@ -47120,10 +49766,36 @@
                     "traits": {
                         "smithy.api#documentation": "<p>The name of the topic.</p>"
                     }
+                },
+                "UserExperienceVersion": {
+                    "target": "com.amazonaws.quicksight#TopicUserExperienceVersion",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The user experience version of the topic.</p>"
+                    }
                 }
             },
             "traits": {
                 "smithy.api#documentation": "<p>A topic summary.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicTemplate": {
+            "type": "structure",
+            "members": {
+                "TemplateType": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The template type for the <code>TopicTemplate</code>.</p>"
+                    }
+                },
+                "Slots": {
+                    "target": "com.amazonaws.quicksight#Slots",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The slots for the <code>TopicTemplate</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>TopicTemplate</code>.</p>"
             }
         },
         "com.amazonaws.quicksight#TopicTimeGranularity": {
@@ -47194,6 +49866,44 @@
                         "smithy.api#enumValue": "NEW_READER_EXPERIENCE"
                     }
                 }
+            }
+        },
+        "com.amazonaws.quicksight#TopicVisual": {
+            "type": "structure",
+            "members": {
+                "VisualId": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The visual ID for the <code>TopicVisual</code>.</p>"
+                    }
+                },
+                "Role": {
+                    "target": "com.amazonaws.quicksight#VisualRole",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The role for the <code>TopicVisual</code>.</p>"
+                    }
+                },
+                "Ir": {
+                    "target": "com.amazonaws.quicksight#TopicIR",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ir for the <code>TopicVisual</code>.</p>"
+                    }
+                },
+                "SupportingVisuals": {
+                    "target": "com.amazonaws.quicksight#TopicVisuals",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The supporting visuals for the <code>TopicVisual</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>TopicVisual</code>.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#TopicVisuals": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.quicksight#TopicVisual"
             }
         },
         "com.amazonaws.quicksight#TotalAggregationComputation": {
@@ -50198,6 +52908,86 @@
                 "smithy.api#output": {}
             }
         },
+        "com.amazonaws.quicksight#UpdateKeyRegistration": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.quicksight#UpdateKeyRegistrationRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.quicksight#UpdateKeyRegistrationResponse"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.quicksight#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InternalFailureException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InvalidParameterValueException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ThrottlingException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Updates a customer managed key in a Amazon QuickSight account.</p>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/accounts/{AwsAccountId}/key-registration",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.quicksight#UpdateKeyRegistrationRequest": {
+            "type": "structure",
+            "members": {
+                "AwsAccountId": {
+                    "target": "com.amazonaws.quicksight#AwsAccountId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to update.</p>",
+                        "smithy.api#httpLabel": {},
+                        "smithy.api#required": {}
+                    }
+                },
+                "KeyRegistration": {
+                    "target": "com.amazonaws.quicksight#KeyRegistration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of <code>RegisteredCustomerManagedKey</code> objects to be updated to the Amazon QuickSight account.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.quicksight#UpdateKeyRegistrationResponse": {
+            "type": "structure",
+            "members": {
+                "FailedKeyRegistration": {
+                    "target": "com.amazonaws.quicksight#FailedKeyRegistrationEntries",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of all customer managed key registrations that failed to update.</p>"
+                    }
+                },
+                "SuccessfulKeyRegistration": {
+                    "target": "com.amazonaws.quicksight#SuccessfulKeyRegistrationEntries",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of all customer managed key registrations that were successfully updated.</p>"
+                    }
+                },
+                "RequestId": {
+                    "target": "com.amazonaws.quicksight#NonEmptyString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Web Services request ID for this operation.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
         "com.amazonaws.quicksight#UpdateLinkPermissionList": {
             "type": "list",
             "member": {
@@ -50502,6 +53292,85 @@
                     "traits": {
                         "smithy.api#default": 0,
                         "smithy.api#documentation": "<p>The HTTP status of the request.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.quicksight#UpdateSPICECapacityConfiguration": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.quicksight#UpdateSPICECapacityConfigurationRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.quicksight#UpdateSPICECapacityConfigurationResponse"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.quicksight#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InternalFailureException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#InvalidParameterValueException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.quicksight#ThrottlingException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Updates the SPICE capacity configuration for a Amazon QuickSight account.</p>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/accounts/{AwsAccountId}/spice-capacity-configuration",
+                    "code": 200
+                }
+            }
+        },
+        "com.amazonaws.quicksight#UpdateSPICECapacityConfigurationRequest": {
+            "type": "structure",
+            "members": {
+                "AwsAccountId": {
+                    "target": "com.amazonaws.quicksight#AwsAccountId",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The ID of the Amazon Web Services account that contains the SPICE configuration that you want to update.</p>",
+                        "smithy.api#httpLabel": {},
+                        "smithy.api#required": {}
+                    }
+                },
+                "PurchaseMode": {
+                    "target": "com.amazonaws.quicksight#PurchaseMode",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Determines how SPICE capacity can be purchased. The following options are available. </p>\n         <ul>\n            <li>\n               <p>\n                  <code>MANUAL</code>: SPICE capacity can only be purchased manually.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTO_PURCHASE</code>: Extra SPICE capacity is automatically purchased on your behalf as needed. SPICE capacity can also be purchased manually with this option.</p>\n            </li>\n         </ul>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.quicksight#UpdateSPICECapacityConfigurationResponse": {
+            "type": "structure",
+            "members": {
+                "RequestId": {
+                    "target": "com.amazonaws.quicksight#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Web Services request ID for this operation.</p>"
+                    }
+                },
+                "Status": {
+                    "target": "com.amazonaws.quicksight#StatusCode",
+                    "traits": {
+                        "smithy.api#default": 0,
+                        "smithy.api#documentation": "<p>The HTTP status of the request.</p>",
+                        "smithy.api#httpResponseCode": {}
                     }
                 }
             },
@@ -51662,7 +54531,7 @@
                 "Role": {
                     "target": "com.amazonaws.quicksight#UserRole",
                     "traits": {
-                        "smithy.api#documentation": "<p>The Amazon QuickSight role of the user. The role can be one of the\n\t\t\tfollowing default security cohorts:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>READER</code>: A user who has read-only access to dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and\n\t\t\t\t\tdashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight\n\t\t\t\t\tsettings.</p>\n            </li>\n         </ul>\n         <p>The name of the Amazon QuickSight role is invisible to the user except for the console\n\t        screens dealing with permissions.</p>",
+                        "smithy.api#documentation": "<p>The Amazon QuickSight role of the user. The role can be one of the\n\t\t\tfollowing default security cohorts:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>READER</code>: A user who has read-only access to dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and\n\t\t\t\t\tdashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight\n\t\t\t\t\tsettings.</p>\n            </li>\n            <li>\n               <p>\n                  <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>\n            </li>\n         </ul>\n         <p>The name of the Amazon QuickSight role is invisible to the user except for the console\n\t        screens dealing with permissions.</p>",
                         "smithy.api#required": {}
                     }
                 },
@@ -51940,7 +54809,7 @@
                 "Role": {
                     "target": "com.amazonaws.quicksight#UserRole",
                     "traits": {
-                        "smithy.api#documentation": "<p>The Amazon QuickSight role for the user. The user role can be one of the\n            following:.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>READER</code>: A user who has read-only access to dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTHOR</code>: A user who can create data sources, datasets, analyses,\n                    and dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ADMIN</code>: A user who is an author, who can also manage Amazon\n                    Amazon QuickSight settings.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RESTRICTED_READER</code>: This role isn't currently available for\n                    use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for\n                    use.</p>\n            </li>\n         </ul>"
+                        "smithy.api#documentation": "<p>The Amazon QuickSight role for the user. The user role can be one of the\n            following:.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>READER</code>: A user who has read-only access to dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTHOR</code>: A user who can create data sources, datasets, analyses,\n                    and dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ADMIN</code>: A user who is an author, who can also manage Amazon\n                    Amazon QuickSight settings.</p>\n            </li>\n            <li>\n               <p>\n                  <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RESTRICTED_READER</code>: This role isn't currently available for\n                    use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for\n                    use.</p>\n            </li>\n         </ul>"
                     }
                 },
                 "IdentityType": {
@@ -52037,6 +54906,24 @@
                     "target": "smithy.api#Unit",
                     "traits": {
                         "smithy.api#enumValue": "RESTRICTED_READER"
+                    }
+                },
+                "ADMIN_PRO": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "ADMIN_PRO"
+                    }
+                },
+                "AUTHOR_PRO": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "AUTHOR_PRO"
+                    }
+                },
+                "READER_PRO": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "READER_PRO"
                     }
                 }
             }
@@ -52782,6 +55669,20 @@
                 "smithy.api#documentation": "<p>The menu options for a visual.</p>"
             }
         },
+        "com.amazonaws.quicksight#VisualOptions": {
+            "type": "structure",
+            "members": {
+                "type": {
+                    "target": "com.amazonaws.quicksight#LimitedString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The type for a <code>VisualOptions</code>.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The definition for a <code>VisualOptions</code>.</p>"
+            }
+        },
         "com.amazonaws.quicksight#VisualPalette": {
             "type": "structure",
             "members": {
@@ -52800,6 +55701,41 @@
             },
             "traits": {
                 "smithy.api#documentation": "<p>The visual display options for the visual palette.</p>"
+            }
+        },
+        "com.amazonaws.quicksight#VisualRole": {
+            "type": "enum",
+            "members": {
+                "PRIMARY": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "PRIMARY"
+                    }
+                },
+                "COMPLIMENTARY": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "COMPLIMENTARY"
+                    }
+                },
+                "MULTI_INTENT": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "MULTI_INTENT"
+                    }
+                },
+                "FALLBACK": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "FALLBACK"
+                    }
+                },
+                "FRAGMENT": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "FRAGMENT"
+                    }
+                }
             }
         },
         "com.amazonaws.quicksight#VisualSubtitleLabelOptions": {

@@ -1,5 +1,5 @@
 The models stored in this project are extracted from the official
-“AWS SDK for Rust” repository [1].
+“The AWS SDK for Rust” repository [1].
 They are licensed as declared by Amazon Web Services, Inc. at the source
 repository [2].
 
